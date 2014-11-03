@@ -1,0 +1,23 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{ansmath}
+
+\begin{document}
+\section{Aufgabe 1}
+\begin{enumerate}
+\item[(a)]
+Ein $k$-närer Baum der Tiefe $l$ mit insgesamt $n$ Knoten hat 
+$\sum_{i=1}^l k^i - (\sum_{i=0}^l k^i - n)$ Kanten 
+(dabei ist $\sum_{i=0}^l k^i$ die Anzahl der Knoten des 
+vollständigen Baumes, $\sum_{i=0}^l k^i - n$ also die Anzahl der 
+"`fehlenden Knoten"').
+\item[(b)]
+In einem Level liegen maximal $k^l$ Knoten.
+\item[(c)]
+$\sum_{i=0}^l k^i - b \cdot k$ \qquad mit b: Anzahl der Knoten 
+ohne Kinder. \\
+\item[(d)]
+$\sum_{i=0}^l k^i = k^{l+1} - 1$
+\end{enumerate}
+\end{document}

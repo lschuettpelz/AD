@@ -1,0 +1,46 @@
+\documentclass[article]
+\usepackage[ngerma]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{algpseudocode}
+
+\begin{document}
+\section{Aufgabe 3}
+\begin{enumerate}
+\item[(a)]
+Ein Stack wird dazu genutzt, um neue Elemente zu "enqueuen", wird 
+also "enqueue" aufgerufen, so wird betreffendes Element mit "push" 
+auf den zweiten Stack gelegt. Der andere Stack wird für den Abruf 
+von Elementen genutzt, mit "pop" werden Elemente "dequeued". Ist der 
+erste Stack leer, so wird der zweite Stack umgedreht auf den ersten 
+gelegt, also das oberste Element des zweiten Stacks wird gepopt, 
+auf den ersten Stak gepusht und damit zum untersten Element. Dann 
+wird das zweite Element des zweiten Stacks gepopt, gepusht und zum 
+vorletzten Element....
+
+\begin{algorithmic}
+\State $stack Stack1 \gets new stack()$
+\State $stack Stack2 \gets new stack()$
+
+\Function{enqueue}{Element e}
+Stack2.push(e);
+\EndFunction
+
+\Function{dequeue}{}
+{
+element1 = Stack1.pop();
+if{element1 = null}
+\State	element = Stack2.pop();
+	while{element != null}
+		for{ i=0, i<Stack2.lenght()}
+		\State Stack1.push(element);
+		element = Stack2.pop()
+		
+	
+else 
+{ 
+\Return element1}
+\EndFunction
+\end{algorithmic}
+\item[(b)]
+\end{enumerate}
+\end{document}
