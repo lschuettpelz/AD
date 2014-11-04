@@ -45,5 +45,13 @@ handelt:
 Daraus, dass das Ergebnis größer als 0 ist, folgt, dass es sich tatsächlich um
 ein Minimum der Funktion handelt.
 
+\item[(b)] Geplottet: \\
+\begin{tikzpicture}
+\draw[very thin, color=gray] (0,0) grid (9.9,9.9);
+\draw[->] (0,0) -- (10.1,0) node[right] {$x$};
+\draw[->] (0,0) -- (0,10.1) node[above] {$f(x)$};
+\draw[domain=1.1:10, color=red] plot[id=log] function{x/log(x)};
+\end{tikzpicture}
+
 \end{enumerate}
 \end{document}
