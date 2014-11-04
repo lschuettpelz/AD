@@ -45,7 +45,15 @@ handelt:
 \end{align*}
 Daraus, dass das Ergebnis größer als 0 ist, folgt, dass es sich tatsächlich um
 ein Minimum der Funktion handelt.
-\item[(b)]
+
+\item[(b)] Geplottet: \\
+\begin{tikzpicture}
+\draw[very thin, color=gray] (0,0) grid (9.9,9.9);
+\draw[->] (0,0) -- (10.1,0) node[right] {$x$};
+\draw[->] (0,0) -- (0,10.1) node[above] {$f(x)$};
+\draw[domain=1.1:10, color=red] plot[id=log] function{x/log(x)};
+\end{tikzpicture}
+
 \item[(c)]
 \item[(d)]
 In dem Baum von 3(d) müssen zwei Vertauschungen durchgeführt werden, in 
@@ -55,5 +63,7 @@ Aussage: $F"ur\ alle\ 2/3-kompatiblen\ Arrays\ gilt:\ in\ H_3\ ben"otigt\
 keine \textsc{ Decrease } -Operation\ auf\ der\ Wurzel\ mehr\ 
 Vertauschungen\ als\ dieselbe\ \textsc{Decrease} -Operation\ auf\ der\ 
 Wurzel\ in\ H_2$.  
+
+
 \end{enumerate}
 \end{document}
