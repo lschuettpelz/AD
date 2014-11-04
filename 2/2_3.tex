@@ -8,15 +8,15 @@
 \section{Aufgabe 3}
 \begin{enumerate}
 \item[(a)]
-Ein Stack wird dazu genutzt, um neue Elemente zu "enqueuen", wird 
-also "enqueue" aufgerufen, so wird betreffendes Element mit "push" 
-auf den zweiten Stack gelegt. Der andere Stack wird für den Abruf 
-von Elementen genutzt, mit "pop" werden Elemente "dequeued". Ist der 
-erste Stack leer, so wird der zweite Stack umgedreht auf den ersten 
-gelegt, also das oberste Element des zweiten Stacks wird gepopt, 
-auf den ersten Stak gepusht und damit zum untersten Element. Dann 
-wird das zweite Element des zweiten Stacks gepopt, gepusht und zum 
-vorletzten Element....
+Ein Stack wird dazu genutzt, um neue Elemente zu "`enqueuen"', wird 
+also \textit{enqueue} aufgerufen, so wird betreffendes Element mit 
+\textit{push} auf den zweiten Stack gelegt. Der andere Stack wird 
+für den Abruf von Elementen genutzt, mit \textit{pop} werden Elemente 
+"`dequeued"'. Ist der erste Stack leer, so wird der zweite Stack 
+umgedreht auf den Ersten gelegt, also das oberste Element des zweiten 
+Stacks wird "`gepopt"', auf den ersten Stack "`gepusht"' und damit 
+zum untersten Element. Dann wird das zweite Element des zweiten Stacks 
+"`gepopt"', "`gepusht"' und zum vorletzten Element....
 
 \begin{algorithm}
 \caption{Queue}
@@ -42,6 +42,22 @@ vorletzten Element....
 \EndFunction
 \end{algorithmic}
 \end{algorithm}
+
+Der Aufwand von \textit{enqueue} ist konstant ($O(1)$), doch der Aufwand 
+von \textit{dequeue} ist linear abhängig von der Anzahl der Element im 
+zweiten Stack ($O(n)$).
+
 \item[(b)]
+Der Worst-Case entspricht dem Fall, dass man erst $n-1$ Elemente 
+pusht, und dann eines abruft, sodass der gesamte zweite Stack 
+umgedreht werden muss. Damit hat man eine Laufzeit $T_n$ von $n-1+1$, 
+also $n$. Damit ist die \textit{amortisierte Laufzeit} dieser 
+Operationen $T_n/n$ 1. 
+
+(Auch in anderen Fällen ist die Laufzeit der $n_E$ Enqueue Operationen 
++ $n_D$ Dequeue-Operationen genau $O(n)$, da Enqueue nur $n_E \cdot 1$ 
+Operationen braucht, und Dequeue nur $b \cdot \frac{n_D}{b}$, also 
+$n_D$ Operationen, entweder $n \cdot 1$ Operationen, $1 \cdot n$ 
+Operationen oder beliebige Kombinationen dazwischen.)
 \end{enumerate}
 \end{document}
