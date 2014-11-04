@@ -55,6 +55,15 @@ ein Minimum der Funktion handelt.
 \end{tikzpicture}
 
 \item[(c)]
+Die Gesamtlaufzeit von \textsc{Heapify} verbessert sich für $k>l$. 
+Wenn jeder Knoten seine $k$ Kinder in einem binären Max-Heap verwaltet 
+dauert das Auffinden des größten Kindes nur einen Schritt, da diese das 
+oberste Element ist. Die Element können auch einfach getauscht werden, 
+aber dann muss an jedem betroffenen binären Max-Heap \textsc{Heapify}
+aufgerufen werden. Der Aufwand von \textsc{Heapify} in einem binären 
+Baum ist $O(\log k)$, dies muss in jeder Ebene getan werden, also 
+$O(l \cdot \log k)$ 
+  
 \item[(d)]
 In dem Baum von 3(d) müssen zwei Vertauschungen durchgeführt werden, in 
 dem Baum von 3(e) nur eine.
