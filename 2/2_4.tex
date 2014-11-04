@@ -11,6 +11,7 @@
 \usepackage{algpseudocode}
 
 \usepackage{tikz}
+\usetikzlibrary{arrows}
 
 \begin{document}
 \section{Aufgabe 3}
@@ -72,6 +73,69 @@ Aussage: $F"ur\ alle\ 2/3-kompatiblen\ Arrays\ gilt:\ in\ H_3\ ben"otigt\
 keine \textsc{ Decrease } -Operation\ auf\ der\ Wurzel\ mehr\ 
 Vertauschungen\ als\ dieselbe\ \textsc{Decrease} -Operation\ auf\ der\ 
 Wurzel\ in\ H_2$.  
+
+\item[(e)] ~ \\ 
+
+\begin{tikzpicture}[level/.style={sibling distance=60mm/#1}]
+\node [circle,draw] (1) {$1$}
+    child {node [circle,draw] (2) {$9$}
+        child {node [circle,draw] (3) {$6$}
+            child {node [circle,draw] (4) {$4$}}
+            child {node [circle,draw] (5) {$3$}}
+        }
+        child {node [circle,draw] (6) {$7$}
+            child {node [circle,draw] (7) {$1$}}
+            child {node [circle,draw] (8) {$1$}}
+        }
+    }
+    child {node [circle,draw] (9) {$8$}
+        child {node [circle,draw] (10) {$6$}
+            child {node [circle,draw] (11) {$2$}}
+            child {node [circle,draw] (12) {$3$}}
+        }
+        child {node [circle,draw] (13) {$5$}
+            child {node [circle,draw] (14) {$5$}}
+            child {node [circle,draw] (15) {$4$}}
+        }
+    };
+\draw[->] (1) to [bend right] (2);
+\draw[->] (2) to [bend left] (6);
+\end{tikzpicture} \\
+In diesen Beispiel benötigt Heapify 2 Schritte. Schauen wir uns jetzt den
+3-nären Heap dazu an:\\
+\begin{tikzpicture}[level/.style={sibling distance=14cm/(3^#1)}]
+\node [circle,draw] (1) {$1$}
+    child {node [circle,draw] (2) {$9$}
+        child { node [circle,draw] (3) {$7$}
+            child { node [circle,draw] (4) {$5$}}
+            child {node [circle,draw] (5) {$4$}}
+        }
+        child {node [circle,draw] (6) {$6$}
+        }
+        child {node [circle,draw] (7) {$5$}
+        }
+    }
+    child {node [circle,draw] (8) {$8$}
+        child {node [circle,draw] (9) {$4$}
+        }
+        child {node [circle,draw] (10) {$3$}
+        }
+        child {node [circle,draw] (11) {$1$}
+        }
+    }
+    child {node [circle,draw] (12) {$6$}
+        child {node [circle,draw] (13) {$1$}
+        }
+        child {node [circle,draw] (14) {$2$}
+        }
+        child {node [circle,draw] (15) {$3$}
+        }
+    };
+\draw[->] (1) to [bend right] (2);
+\draw[->] (2) to [bend right] (3);
+\draw[->] (3) to [bend right] (4);
+\end{tikzpicture} \\
+Nun benötigt Heapify 3 Schritte. Dadurch ist die Behauptung widerlegt.
 
 
 \end{enumerate}
