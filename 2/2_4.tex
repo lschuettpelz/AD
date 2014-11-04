@@ -1,0 +1,49 @@
+\documentclass{scrartcl}
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{latexsym}
+
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+\usepackage{tikz}
+
+\begin{document}
+\section{Aufgabe 3}
+\begin{enumerate}
+\item[(a)]
+Gegeben sei die Funktion $f : \mathbb{R}_{>1} \to \mathbb{R}$ mit
+\[
+    f(x) = x \log_n x = \log_e n \cdot \left( x \cdot \frac{1}{\log_e x} \right)
+\]
+Gesucht sei nun ein Minimum der Funktion $f$. Zunächst bilden wir die
+Ableitungen der Funktion:
+\begin{align*}
+f(x) &= \log_e n \cdot \left( x \cdot \frac{1}{\log_e x} \right) \\
+\frac{\mathrm d}{\mathrm d x} f(x) &= \log_e n \cdot \frac{\log_e x - 1}{\log_e^2 x} \\
+\frac{\mathrm d^2}{\mathrm d x^2} f(x) &= \log_e n \cdot \frac{2 - \log_e x}{x \cdot \log_e^3 x}
+\end{align*}
+Nun setzen wir $\frac{\mathrm d}{\mathrm d x} f(x) = 0$:
+\begin{align*}
+\frac{\mathrm d}{\mathrm d x} f(x) = 0 
+    &\Leftrightarrow \log_e n \cdot \frac{\log_e x - 1}{\log_e^2 x} = 0 \\
+    &\Leftrightarrow \log_e x - 1 = 0 \\
+    &\Leftrightarrow x = e
+\end{align*}
+Und anschließend überprüfen wir, indem wir unser $x$ in $\frac{\mathrm
+d^2}{\mathrm d x^2} f(x)$ einsetzen, ob es sich auch um das gewünschte Minimum
+handelt:
+\begin{align*}
+\frac{\mathrm d^2}{\mathrm d x^2} f(e) &= \log_e n \cdot \frac{2 - \log_e e}{x
+\cdot \log_e^3 e} \\
+&= \log_e n \cdot \frac{2 - 1}{e \cdot 1^3} \\
+&= \frac{\log_e n}{e}
+\end{align*}
+Daraus, dass das Ergebnis größer als 0 ist, folgt, dass es sich tatsächlich um
+ein Minimum der Funktion handelt.
+
+\end{enumerate}
+\end{document}
