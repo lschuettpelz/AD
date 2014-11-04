@@ -1,7 +1,8 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
-\usepackage{ansmath}
+\usepackage{amsmath}
+\usepackage{tikz}
 
 \begin{document}
 \section{Aufgabe 2}
@@ -22,7 +23,25 @@ Laufzeiten in $\Theta(n)$
 \underline{Order3:}\\
 \texttt{ETHIIEGRLWOALKMS}\\
 
-\item[(d)]
+\item[(d)] ~ \\
+\begin{tikzpicture}[level/.style={sibling distance=60mm/#1}]
+\node [circle,draw] (S) {$S$}
+    child {node [circle,draw] (V) {$V$}
+        child {node [circle,draw] (N) {$N$}
+            child {node [circle,draw] (U) {$U$}}
+            child {node [circle,draw] (I) {$I$}}
+        }
+        child {node [circle,draw] (R) {$R$}
+            child {node [circle,draw] (E) {$E$}}
+        }
+    }
+    child {node [circle,draw] (T) {$Y$}
+        child {node [circle,draw] (I) {$I$}
+        }
+        child {node [circle,draw] (Y) {$Y$}
+        }
+    };
+\end{tikzpicture} \\
 \texttt{SVTNRIYUIE}
 \item[(e)]
 \texttt{WELIKEALGORITHMS}
