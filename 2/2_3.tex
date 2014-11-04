@@ -1,6 +1,7 @@
-\documentclass[article]
-\usepackage[ngerma]{babel}
+\documentclass{scrartcl}
+\usepackage[ngerman]{babel}
 \usepackage[utf8]{inputenc}
+\usepackage{algorithm}
 \usepackage{algpseudocode}
 
 \begin{document}
@@ -17,30 +18,30 @@ auf den ersten Stak gepusht und damit zum untersten Element. Dann
 wird das zweite Element des zweiten Stacks gepopt, gepusht und zum 
 vorletzten Element....
 
-\begin{algorithmic}
+\begin{algorithm}
+\caption{Queue}
+\begin{algorithmic}[1]
 \State $stack Stack1 \gets new stack()$
 \State $stack Stack2 \gets new stack()$
 
-\Function{enqueue}{Element e}
-Stack2.push(e);
+\Function{$enqueue$}{$Element e$} \\
+\Call{$Stack2.push$}{$e$}
 \EndFunction
 
-\Function{dequeue}{}
-{
-element1 = Stack1.pop();
-if{element1 = null}
-\State	element = Stack2.pop();
-	while{element != null}
-		for{ i=0, i<Stack2.lenght()}
-		\State Stack1.push(element);
-		element = Stack2.pop()
-		
-	
-else 
-{ 
-\Return element1}
+\Function{$dequeue$}{} 
+\State $element1 \gets \Call{$Stack1.pop$}$
+\If{$element1 == null$}
+\State	$element2 \gets \Call{$Stack2.pop$}$
+	\While{$element2 \neq null$}
+		\Call{$Stack1.push$}{$element2$}
+		\State $element2 \gets \Call{$Stack2.pop$}$
+	\EndWhile
+\Else \\
+	\Return $element1$
+\EndIf
 \EndFunction
 \end{algorithmic}
+\end{algorithm}
 \item[(b)]
 \end{enumerate}
 \end{document}
