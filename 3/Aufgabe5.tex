@@ -1,0 +1,30 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+
+\begin{document}
+
+\section{Aufgabe 1}
+
+\begin{algorithm}
+\begin{algorithmic}
+\Function{$Min\_und\_Max$}{$A$}
+\State $minsofar \gets A[1]$
+\State $maxsofar \gets A[1]$
+\For {$i \gets 0, \dots , A.length$}
+	\If {$A[i] > maxsofar$}
+	\State $maxsofar \gets A[i]$
+	\ElsIf {$A[i] < minsofar$}
+	\State $minsofar \gets A[i]$
+	\EndIf 
+\EndFor \\
+\Return $minsofar$ \\
+\Return $maxsofar$
+\EndFunction
+\end{algorithmic}
+\end{algorithm}
+\end{document}
