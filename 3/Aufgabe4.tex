@@ -1,0 +1,55 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\usepackage{tikz}
+
+\begin{document}
+\section{Aufgabe 4}
+\begin{enumerate}
+\item[(a)]
+\begin{center}
+\begin{tikzpicture}
+
+\node[]
+
+
+\end{tikzpicture}
+\end{center}
+\item[(b)]
+Es wird in den Bubblesort-Algorithmus eine boolesche Variabe hinzugefügt,
+die zu Beginn auf false gesetzt ist. Wird die innere for-Schleife 
+durchlaufen, ohne dass ein Element getauscht wird, so bleibt die 
+Variable auf false und man kann erkennen, dass kein Element mehr 
+getauscht wurde, also der Array nicht weiter durchlaufen werden muss.
+Die best-case Laufzeit kann dann erzielt werden, wenn der eingegebene
+Array bereits sortiert ist. Hierbei kann nach n Prüfungen bereits 
+abgeschlossen werden, also beträgt der Aufwand O(n).
+\item[(c)]
+\begin{algorithm}
+\begin{algorithmic}
+\Function{Bubblesort+}{A}
+\For{$i \gets 0, \dots , A.length$}
+	\State $b \gets false$
+	\For{$j \gets A.length, \dots, i+1$}
+		\If{$A[i] < A[i-1]$}
+		\Call{Change}{$A[i], A[i-1]$}
+		\State $b \gets true$
+		\EndIf
+	\EndFor
+\EndFor
+\EndFunction
+\end{algorithmic}
+\end{algorithm}
+\item[(d)]
+Der Mehraufwand im worst-case beträgt $O(1)$, da eine Variable gespeichert
+werden muss. Damit bleibt die worst-case Laufzeit bei $O(n^2)$, und da 
+sich aber die best-case Laufzeit verbessert, lohnt sich die Adaption.
+\item[(e)]
+
+Der Baum sieht gleich aus bis auf die best-case Version des schon 
+sortierten Arrays, bei der sich der Baum verkürzt.
+\end{enumerate}
+\end{document}

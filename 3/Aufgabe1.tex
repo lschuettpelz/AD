@@ -1,0 +1,34 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+
+\begin{document}
+\section{Aufgabe 1}
+\begin{algorithm}
+\begin{algorithmic}
+
+\Function{Schleifenprüfer}{Liste L}
+\For {$i \gets 0, \dots, Liste.length$}
+	\State $\Call{Verkettung}{a, b} \gets \Call{Verkettung}{b,a}$
+	\If {$i> 0 \text{ und }  L[i] = L[1]$} \\
+	\Return $\text{Enthält Schleife}$
+	\Else \\
+	\Return $\text{Enthält keine Schleife}$
+	\EndIf
+\EndFor
+\EndFunction
+\end{algorithmic}
+\end{algorithm}
+Laut Aufgabe soll mit dem Algorithmus herausgefunden werden, ob eine 
+gegebene verkettete Liste eine Schleife enthält oder nicht (also das 
+letzte Element auf Null zeigt.) Dazu gehen wir durch die Liste durch 
+und drehen jede Verkettung um. Wenn eine Schleife drin ist, so wird nun 
+beim letzten Element auf ein vorheriges verwiesen, dieses führt aber 
+nun wenn wir der Verkettung folgen wieder zum ersten Element. Damit 
+muss die Liste im schlimmsten Fall zweimal abgelaufen werden, wenn sie 
+danach wieder umgedreht werden soll, viermal. Diese Fälle liegen alle 
+in O(n). Es wird kein zusätzlicher Speicher benötgt.
+\end{document}
