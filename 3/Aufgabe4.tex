@@ -1,20 +1,73 @@
 \documentclass{article}
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
-\usepackage{amsmath}
+\usepackage{amsmath, amssymb}
 \usepackage{algorithm}
 \usepackage{algpseudocode}
 \usepackage{tikz}
+\usetikzlibrary{calc, shapes, backgrounds}
 
 \begin{document}
 \section{Aufgabe 4}
 \begin{enumerate}
 \item[(a)]
+\tikzset{
+yes/.style = {fill = none, text = black,},
+no/.style = {fill = none, text = black,}
+}
 \begin{center}
 \begin{tikzpicture}
+[
+scale = 1, transform shape, thin,
+every node/.style = {draw, rectangle, rounded corners, 
+minimum size = 10mm},
+grow = down,
+level 1/.style = {sibling distance = 3cm},
+level 2/.style = {sibling distance = 5cm},
+level 3/.style = {sibling distance = 3cm},
+level 4/.style = {sibling distance = 1.5cm},
+level distance = 1.5cm
+]
+\node[shape = rectangle, rounded corners, line width = 1pt, minimum size 
+= 10mm, inner sep = 0mm] (X) {$Berechnungsbaum$}
 
-\node[]
+child {node[shape = rectangle, rounded corners, draw, minimum size 
+	= 10mm, inner sep = 0mm] (A) {$c < b$}
+	child {node[no] (B) {$b < a$}
+		child {node[no] (D) {$c < b$}
+			child {node[circle] (H) {$a,b,c$}}
+			}
+		child {node[yes] (E) {$c < a$}
+			child {node[circle] (I) {$b,a,c$}}
+			child {node[circle] (J) {$b,c,a$}}
+			}
+		}
+	child { node[yes] (C) {$c < a$}
+		child {node[no] (F) {$b < c$}
+			child {node[circle] (K) {$a,c,b$}}
+			%child {node[yes] (I) {$c < b$}}
+			}
+		child {node[yes] (G) {$b < a$}
+			child {node[circle] (L) {$c,a,b$}}
+			child {node[circle] (M) {$c,b,a$}}
+			}
+		}
+      };
 
+\begin{scope}[nodes = {draw = none}]
+	\path (A) -- (B) node [near start, left] {$no$};
+	\path (A) -- (C) node [near start, right] {$yes$};
+	\path (B) -- (D) node [near start, left] {$no$};
+	\path (B) -- (E) node [near start, right] {$yes$};
+	\path (C) -- (F) node [near start, left] {$no$};
+	\path (C) -- (G) node [near start, right] {$yes$};
+	\path (D) -- (H) node [near start, left] {$no$};
+	\path (E) -- (I) node [near start, left] {$no$};
+	\path (E) -- (J) node [near start, right] {$yes$};
+	\path (F) -- (K) node [near start, left] {$no$};
+	\path (G) -- (L) node [near start, left] {$no$};
+	\path (G) -- (M) node [near start, right] {$yes$};
+\end{scope}
 
 \end{tikzpicture}
 \end{center}
@@ -48,6 +101,67 @@ Der Mehraufwand im worst-case beträgt $O(1)$, da eine Variable gespeichert
 werden muss. Damit bleibt die worst-case Laufzeit bei $O(n^2)$, und da 
 sich aber die best-case Laufzeit verbessert, lohnt sich die Adaption.
 \item[(e)]
+
+\tikzset{
+yes/.style = {fill = none, text = black,},
+no/.style = {fill = none, text = black,}
+}
+\begin{center}
+\begin{tikzpicture}
+[
+scale = 1, transform shape, thin,
+every node/.style = {draw, rectangle, rounded corners, 
+minimum size = 10mm},
+grow = down,
+level 1/.style = {sibling distance = 3cm},
+level 2/.style = {sibling distance = 5cm},
+level 3/.style = {sibling distance = 3cm},
+level 4/.style = {sibling distance = 1.5cm},
+level distance = 1.5cm
+]
+\node[shape = rectangle, rounded corners, line width = 1pt, minimum size 
+= 10mm, inner sep = 0mm] (X) {$Berechnungsbaum$}
+
+child {node[shape = rectangle, rounded corners, draw, minimum size 
+	= 10mm, inner sep = 0mm] (A) {$c < b$}
+	child {node[no] (B) {$b < a$}
+		child {node[circle] (D) {$a,b,c$}
+			%child{node[draw none] (H) {}}
+			}						
+		child {node[yes] (E) {$c < a$}
+			child {node[circle] (I) {$b,a,c$}}
+			child {node[circle] (J) {$b,c,a$}}
+			}
+		}
+	child { node[yes] (C) {$c < a$}
+		child {node[no] (F) {$b < c$}
+			child {node[circle] (K) {$a,c,b$}}
+			%child {node[yes] (I) {$c < b$}}
+			}
+		child {node[yes] (G) {$b < a$}
+			child {node[circle] (L) {$c,a,b$}}
+			child {node[circle] (M) {$c,b,a$}}
+			}
+		}
+      };
+
+\begin{scope}[nodes = {draw = none}]
+	\path (A) -- (B) node [near start, left] {$no$};
+	\path (A) -- (C) node [near start, right] {$yes$};
+	\path (B) -- (D) node [near start, left] {$no$};
+	\path (B) -- (E) node [near start, right] {$yes$};
+	\path (C) -- (F) node [near start, left] {$no$};
+	\path (C) -- (G) node [near start, right] {$yes$};
+	\path (E) -- (I) node [near start, left] {$no$};
+	\path (E) -- (J) node [near start, right] {$yes$};
+	\path (F) -- (K) node [near start, left] {$no$};
+	\path (G) -- (L) node [near start, left] {$no$};
+	\path (G) -- (M) node [near start, right] {$yes$};
+\end{scope}
+
+\end{tikzpicture}
+\end{center}
+
 
 Der Baum sieht gleich aus bis auf die best-case Version des schon 
 sortierten Arrays, bei der sich der Baum verkürzt.
