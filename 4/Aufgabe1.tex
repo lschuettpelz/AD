@@ -2,25 +2,25 @@
 
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
-\usepackage{amssymb}{amsmath}
+\usepackage{amssymb, amsmath}
 
-\begin{document} \section{Aufgabe 1} Bei der linearen Suche 
-zerstören wir genau ein Glass. Bei der BinarySearch zerstören wir 
-im schlimmsten Fall log n Gläser zerstören. Wir beherrschen dieses 
-Trade-off, indem wir l-1 mal Binary-Search durchführen, und dann 
-in dem Bereich, den wir eingrenzen konnten, lineare Suche 
-durchführen. 
+\begin{document} 
+\section{Aufgabe 1} 
+\begin{enumerate}
+\item[(a)]
+Wir testen mit dem ersten 
+Glas jeweils in $m^2$ Schritten, d.h. Sprosse (1, 4, 9, 16, 25, . 
+. . ). Dies ergibt einen Aufwand von $\sqrt{n}$. Wenn auf einer Stufe das 
+erste Glas bricht, gehen wir zur letzten getesteten Stufe zurück 
+und testen von dort schrittweise jede Stufe, bis das neue Glas 
+ebenfalls zerbricht. Der Gesammtaufwand beträgt also $\sqrt{n} + (\sqrt{n} - \sqrt{n - 1}) = \sqrt{n}(1 - \sqrt{n - 1}) \in o(n)$.
 
-Der schlimmste Fall, wie oft wir ein Glas fallen lassen müssen, 
-ist weiterhin, wenn wir sagen l=1, wir möchten also nur ein Glas 
-kaputt machen und machen lineare Suche. Bei l+1 machen wir Binary 
-Search, im schlimmsten Fall zerbricht das Glas sofort und wir 
-machen lineare Suche in der unteren Hälfte der Leiter. 
-
-Dies Prinzip wird auch bei höheren l so fortgesetzt, wenn wir bei 
-l genau m Gläser fallen lassen müssen, dann können wir bei l+1 
-genau einmal öfter Binary Search durchführen und die Anzahl der 
-Gläser, die man fallen lassen muss halbieren($\frac{m}{2}$).
-
+\item[(b)] 
+Bei der linearen Suche zerstören wir genau ein Glass. 
+Bei der BinarySearch zerstören wir im schlimmsten Fall log n 
+Gläser zerstören. Wir beherrschen dieses Trade-off, indem wir $l-1$ 
+mal Binary-Search durchführen, und dann in dem Bereich, den wir 
+eingrenzen konnten, lineare Suche durchführen.
+\end{enumerate}
 
 \end{document}
