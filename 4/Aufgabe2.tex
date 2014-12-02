@@ -1,0 +1,66 @@
+\documentclass{article}
+
+\usepackage[ngerman]{babel}
+\usepackage[utf8]{inputenc}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{algorithmicx}
+\usepackage{enumitem}
+
+\begin{document}
+\section*{Aufgabe 2}
+\begin{enumerate}[label=(\alph*)]
+\item Diese Aussage ist wahr. Man nehme einen Pfad \(P \in V^*\) vom Knoten
+\(v_0\) zum Knoten \(v_n\) mit Knoten \(v_i \in V\), in dem mehrere Knoten
+mehrfach vorkommen können. Man nimmt sich zwei dieser Knoten heraus und nennt
+diese \(v_k\), so dass \(P = \left( v_0, v_1, \dots , v_k , \dots , v_k , \dots
+, v_{n-1}, v_n\right)\) gilt. Dieser Pfad lässt sich in drei Pfade \(P'_i$ mit
+$i \in \{0,1,2\}\) unterteilen, wobei folgendes gilt:
+\[
+	P_0 = \left( v_0 , \dots , v_k \right), \quad
+	P_1 = \left( v_k , \dots , v_k \right), \quad
+	P_2 = \left( v_k , \dots , v_n \right)
+\]
+
+Aus \(P_0\) und \(P_2\) kann man nun aber einen Pfad \(P'\) mit \(P' = \left(
+v_0 , \dots , v_k , \dots , v_n \right) \) konstruieren, der von \(v_0\) nach
+\(v_n\) führt, aber nur einmal den Knoten \(v_k\) passiert. Dieses Verfahren
+kann so lange wiederholt werden, bis kein Knoten mehr doppelt vorkommt.
+
+\item Im worst-case besteht der zusammenhängende Graph nur aus einem einzelnen
+Pfad, in dem jeder Knoten nur einmal vorkommt. Dann ist die maximale Distanz
+zwischen den beiden Endknoten die länge des Pfades, welche \(n-1\) ist. Jede
+weitere Kante, die hinzugefügt wird, erzeugt eine Schleife im Graphen. Da eine
+Schleife den kürzesten Pfad nicht länger machen kann (siehe Aufgabenteil (a)),
+wird der längste kürzeste Pfad dadurch nicht länger als \(n-a\).
+
+\item Ein Baum ist per Definition schleifenfrei. Daher können je zwei Knoten
+auch nur durch einen Pfad miteinander verbunden werden.
+
+\item Ja, per Definition.
+
+\item Nein. Die Summe aller Knotengrade in einem ungerichteten Graphen mit \(m\)
+Kanten ist genau \(2m\). Dies liegt daran, dass jede Kante genau aus zwei Knoten
+herausläuft und der Grad durch die Anzahl der verlassenden Kanten eines Knotens
+definiert ist.
+
+\item Da, da die Länge des Pfades von einem Blatt zum Wurzelknoten maximal
+\(\lceil \log_k n \rceil\) ist. Da der Pfad zwischen zwei Blättern in einem Baum
+immer über den Wurzelknoten läuft, kann diese Distanz maximal die doppelte
+maximale Distanz eines Blattes zum Wurzelknoten sein.
+
+\item Ja, man kann die Zahl wie folgt herleiten:\\
+Der erste Knoten hat zu maximal \(n-1\) anderen Knoten eine Verbindung. Der
+nächste Knoten hat nur noch zu \(n-2\) Knoten eine Verbindung, die zuvor nicht
+existierte. Das geht so lange weiter, bis der letzte Knoten lediglich eine
+weitere Kante hinzufügt. Schon der kleine Gauß wusste in der Grundschule, dass
+dies \(\frac{(n-1)(n-1+1)}{2} = \frac{(n-1)(n)}{2}\) ergibt (Gauß'sche
+Summenformel). Daher stimmt die Formel.
+
+\item Diese Aussage stimmt nicht, da ein vollständiger Graph diese Bedingung
+erfüllt.
+
+
+\end{enumerate}
+
+\end{document}
