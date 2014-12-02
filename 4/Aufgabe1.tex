@@ -1,0 +1,26 @@
+\documentclass{scrartcl}
+
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{amssymb}{amsmath}
+
+\begin{document} \section{Aufgabe 1} Bei der linearen Suche 
+zerstören wir genau ein Glass. Bei der BinarySearch zerstören wir 
+im schlimmsten Fall log n Gläser zerstören. Wir beherrschen dieses 
+Trade-off, indem wir l-1 mal Binary-Search durchführen, und dann 
+in dem Bereich, den wir eingrenzen konnten, lineare Suche 
+durchführen. 
+
+Der schlimmste Fall, wie oft wir ein Glas fallen lassen müssen, 
+ist weiterhin, wenn wir sagen l=1, wir möchten also nur ein Glas 
+kaputt machen und machen lineare Suche. Bei l+1 machen wir Binary 
+Search, im schlimmsten Fall zerbricht das Glas sofort und wir 
+machen lineare Suche in der unteren Hälfte der Leiter. 
+
+Dies Prinzip wird auch bei höheren l so fortgesetzt, wenn wir bei 
+l genau m Gläser fallen lassen müssen, dann können wir bei l+1 
+genau einmal öfter Binary Search durchführen und die Anzahl der 
+Gläser, die man fallen lassen muss halbieren($\frac{m}{2}$).
+
+
+\end{document}
