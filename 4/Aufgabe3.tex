@@ -1,0 +1,47 @@
+\documentclass{scrartcl}
+
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{amssymb, amsmath}
+
+\begin{document} 
+
+\section{Aufgabe 3}
+
+\begin{enumerate} 
+\item[(a)] 
+\underline{Induktionsanfang}: \\
+Sei $k=0$. Dann ist $A^0=I$, I die Einheitsmatrix, und \\
+$A^0[i,j]= \begin{cases} &1 \text{ für } i=j, \\
+			&0 \text{ sonst } \end{cases}$ \\ 
+da jeder Knoten eine Kante der Länge 0 zu sich selbst hat.
+
+\underline{Induktionsannahme}: \\
+Sei $A^k[i,j]$ genau die Anzahl verschiedener Pfade der Länge $k$, 
+die in $G$ von $i$ nach $j$ führen. 
+
+\underline{Induktionsschritt}: \\
+\begin{align*} 
+A^{k+1}&=A^k \cdot A \\ 
+A^{k+1}[i,j]&= \sum_{m=1}^n a_{im} \cdot b_{mj} \\
+\text{ dabei ist } a_{im} \text{ Element der Matrix } A^k 
+\text{ und } b_{mj} \text{ Element der Matrix } A. 
+\end{align*} 
+Dann steht nach Induktionsannahme in $a_{im}$ genau die Anzahl 
+verschiedener Pfade der Länge $k$, die in $G$ von $i$ nach $m$ führen.
+In $b_{kj}$ steht entweder eine 1 oder eine 0, je nachdem, ob von $m$ ein 
+Pfad nach j führt. Durch die Multiplikation werden alle Pfade 
+aussortiert, die zwar von $i$ nach $m$, aber nicht weiter nach $j$ führen 
+(Multiplikation mit 0 = 0), und diejenigen Pfade dazu addiert, die von 
+$i$ nach $m$ und dann weiter nach $j$ führen. 
+
+Damit sind in $A^{k+1}[i,j]$ genau die Einträge, die mit Länge $k$ von 
+$i$ nach $m$ führen, und dann mit einem Schritt nach $j$, also genau 
+die Anzahl verschiedener Pfade, die von $i$ nach $j$ mit Länge $k+1$.
+
+
+\item[(b)] \item[(c)] \end{enumerate}
+
+
+
+\end{document}
