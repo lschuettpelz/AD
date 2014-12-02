@@ -3,6 +3,8 @@
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
 \usepackage{amssymb, amsmath}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
 
 \begin{document} 
 
@@ -21,12 +23,13 @@ Sei $A^k[i,j]$ genau die Anzahl verschiedener Pfade der Länge $k$,
 die in $G$ von $i$ nach $j$ führen. 
 
 \underline{Induktionsschritt}: \\
-\begin{align*} 
-A^{k+1}&=A^k \cdot A \\ 
-A^{k+1}[i,j]&= \sum_{m=1}^n a_{im} \cdot b_{mj} \\
+\[ 
+A^{k+1} =A^k \cdot A \] \\ 
+\[
+A^{k+1}[i,j] = \sum_{m=1}^n a_{im} \cdot b_{mj} \] \\ \[
 \text{ dabei ist } a_{im} \text{ Element der Matrix } A^k 
 \text{ und } b_{mj} \text{ Element der Matrix } A. 
-\end{align*} 
+\] 
 Dann steht nach Induktionsannahme in $a_{im}$ genau die Anzahl 
 verschiedener Pfade der Länge $k$, die in $G$ von $i$ nach $m$ führen.
 In $b_{kj}$ steht entweder eine 1 oder eine 0, je nachdem, ob von $m$ ein 
@@ -40,7 +43,33 @@ $i$ nach $m$ führen, und dann mit einem Schritt nach $j$, also genau
 die Anzahl verschiedener Pfade, die von $i$ nach $j$ mit Länge $k+1$.
 
 
-\item[(b)] \item[(c)] \end{enumerate}
+\item[(b)] 
+\begin{algorithm}
+\begin{algorithmic}
+\Function{GibtEsPfad}{$G, k$}\\
+\Call{BildeAdjazenzmatrix}{$G$}\\
+\Call{Bilde\_$A^k$}{$A,k$}
+\ForAll{Eintr"age\_in\_$A^k$}
+\If{Eintrag=0} 
+\Return False
+\EndIf
+\EndFor \\
+\Return True 
+\EndFunction
+\end{algorithmic}
+\end{algorithm}
+
+
+\item[(c)] Um herauszufinden, ob die jeweiligen Knotenpaare mit 
+einem Pfad der Länge höchstens k verbunden werden können, sollte 
+der Algorithmus, nachdem überprüft wird, ob die Knotenpaare mit 
+einem Pfad der Länge k verbunden werden können, die Matrix 
+$A^{k+1}$ bilden, und die Einträge dieser Matrix müssen alle Null 
+sein, da es keinen Pfad zwischen den Knotenpaaren einer Länge $>k$ 
+geben darf.
+
+
+\end{enumerate}
 
 
 
