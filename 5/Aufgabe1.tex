@@ -1,0 +1,38 @@
+\documentclass{article}
+
+\usepackage[ngerman]{babel}
+\usepackage{amsmath}
+\usepackage{algorithmic}
+
+\begin{document}
+
+\section*{Aufgabe1}
+Folgender Algorithmus bekommt einen topologisch sortierten Graphen, der
+keine Schleifen enth"alt, "ubergeben und wendet dann auf dem Graphen direkt
+die Relax-Operationen an.
+
+\begin{algorithmic}
+\STATE NodeQueue \(\leftarrow\) \(\left[StartNode\right]\)
+\WHILE{NodeQueue not empty}
+    \STATE \(u := DEQUEUE(NodeQueue)\)
+    \FORALL{\(v \in Adj(u)\)}
+	\STATE \(Relax(u,v)\)
+	\STATE \(ENQUEUE(NodeQueue, v)\)
+    \ENDFOR
+\ENDWHILE
+\end{algorithmic}
+
+Da die Gesamtanzahl der Kanten eines Graphen der Summe aller Kanten, die in
+die einzelnen Knoten hineinf"uhren entspricht, wird jeder Knoten genau so oft
+in die Queue eingef"ugt. Die While-Schleife wird, da jedes mal maximal ein
+Knoten aus der Queue herausgenommen wird, daher f"ur jede Kante in dem
+Graphen genau ein Mal aufgerufen. Zus"atzlich wird die Schleife einmal am
+Anfang f"ur den Startknoten aufgerufen.
+
+Dieser Algorithmus entspricht der Breitensuche. Er markiert jedoch keine
+Knoten, da es f"ur unseren Schleifenfreien, gerichteten Graphen m"oglich
+ist, einen Knoten mehrfach zu besuchen und dennnoch zu einer Termination des
+Algorithmus kommt. Dies ist wie weiter oben beschrieben genau nach
+\(\left|E\right|\) Schritten der Fall.
+
+\end{document}
