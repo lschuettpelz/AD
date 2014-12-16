@@ -1,0 +1,26 @@
+\documentclass{article}
+\usepackage[ngerman]{babel}
+\usepackage{amsmath}
+\usepackage{algorithmic}
+\begin{document}
+\section*{Aufgabe3}
+\begin{enumerate}
+\item[(a)] Wenn man alle stückweise linearen Funktionen als Kanten eines Graphen auffasst und die Kantengewichtungen mit einer Abwandlung von \\\\
+(1) $ \alpha \cdot$ Anzahl linearer Segmente von $g + \beta \cdot \sum_{i=2}^{n-1} \lvert f(x_i)-g(x_i) \lvert ^2$ \\\\
+berechnet. \\
+Dann kann man mittels eines shortest path Algorithmus die Funktion finden, die $f(x)$ möglichst gut approximiert mit einer möglichst einfachen Funktion. \\\\
+Der Parameter $\alpha$ sorgt dafür wie stark eine komplexere Funktion gewichtet wird, der Parameter $\beta$ gewichtet den Fehler.\\\\
+Für jede Kante wird das Kantengewicht berechnet als:\\
+ $d_{\{u,v\}} = \alpha \cdot 1 + \beta \cdot \sum_{i=u}^{v} \lvert f(x_i)-g(x_i) \lvert ^2$
+\item[(b)] Minimal ist die stückweise lineare Funktion: $x_1 (0,0)$ -- $x_2 (5,5)$ -- $x_4 (15,0)$ \\
+$g(x_{1,2}) = 0 + 1x$ $g(x_ {2,4}) = 5 - 0,5x$ \\\\
+Beweis: \\
+$1 \cdot 2 + 1 \cdot (2-2,5)^2 = 2+ 0,25 = 2,25$\\\\
+$x_1 (0,0)$ -- $x_2 (5,5)$ -- $x_3 (10,2)$ -- $x_4 (15,0)$ \\
+$1 \cdot 3 + 1 \cdot 0^2=3>2,25$\\\\
+$x_1 (0,0)$ -- $x_3 (10,2)$ -- $x_4 (15,0)$ \\
+$1 \cdot 2 + 1 \cdot (5-1)^2 = 2 + 16 = 18> 2,25$\\\\
+$x_1 (0,0)$ -- $x_4 (15,0)$ \\
+$1 \cdot 1 + 1 \cdot ((5-0)^2+(2-0)^2) = 1 + 25 + 4 = 30 >2,25$\\
+\end{enumerate}
+\end{document}
