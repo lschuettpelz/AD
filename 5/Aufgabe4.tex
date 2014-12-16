@@ -1,0 +1,60 @@
+\documentclass{article}
+
+\usepackage[ngerman]{babel}
+\usepackage{amsmath}
+\usepackage{amssymb}
+\usepackage{algorithm}
+\usepackage{algorithmic}
+
+\begin{document}
+
+\section*{Aufgabe4}
+\begin{enumerate}
+\item[(a)] Folgendes Verfahren ist eine Adaption des Bellman-Ford-Algorithmus.
+Der Algorithmus wurde so angepasst, dass er statt die Gewichte zu addieren,
+diese multipliziert, da es sich hier bei den Kantengewichten um
+Wahrscheinlichkeiten handelt.
+
+\begin{algorithm}
+\caption{InitializeSingleSource*(G,s)}
+\begin{algorithmic}
+\FORALL{\(v \in V\)}
+\STATE \(v.dist \leftarrow 0\)
+\STATE \(v.\pi \leftarrow NIL\)
+\ENDFOR
+\STATE \(s.dist \leftarrow 1\)
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}
+\caption{relax*(u,v)}
+\begin{algorithmic}
+\IF{\( v.dist < u.dist \cdot w(u,v) \)}
+\STATE \( v.dist = u.dist \cdot w(u,v) \)
+\STATE \( v.\pi = u \)
+\ENDIF
+\end{algorithmic}
+\end{algorithm}
+
+\begin{algorithm}
+\caption{BellmanFord*(G,s)}
+\begin{algorithmic}
+\STATE InitializeSingleSource*(G,s)
+\FOR{\( i = 1,\dots,\left|V\right| - 1 \)}
+\FORALL{\( edges (u,v) \in E \)}
+\STATE Relax*(u,v)
+\ENDFOR
+\ENDFOR
+\FORALL{\( edges (u,v) \in E \)}
+\IF{ \(v.dist < u.dist \cdot w(u,v) \)}
+\RETURN false
+\ENDIF
+\ENDFOR
+\RETURN true
+
+\end{algorithmic}
+\end{algorithm}
+
+\end{enumerate}
+
+\end{document}

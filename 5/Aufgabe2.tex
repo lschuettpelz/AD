@@ -8,13 +8,40 @@
 
 \section*{Aufgabe2}
 \begin{enumerate}
-\item[(a)] ~
+\item[(a)] Ja, das Problem ist wohl definiert. Wir betrachten dabei 4 F"alle,
+die eintreten k"onnen:
+
+1. Es gibt nur einen Knoten und keine Kanten im Graphen. Dann ist der k"urzeste
+Pfad der Pfad der L"ange \(0\), der nur den einen Knoten aus \(G\) enth"alt.
+
+2. Es gibt nur positive Kanten im Graphen. Auch hier ist wieder jeder Pfad der
+L"ange \(0\) ein k"urzester Pfad.
+
+3. Es gibt nur negative Kanten im Graphen. Hier ist der Pfad im Graphen der
+k"urzeste, welcher das niedrigste Kantengewicht besitzt.
+
+4. Es gibt sowohl negative, als auch positive Kanten im Graphen. Auch hier ist
+wie bei 3. der Pfad zwischen den beiden Knoten mit dem niedrigsten Kantengewicht
+auf der Verbindungskante der k"urzeste Pfad.
+
 \item[(b)] Wir wenden f"ur die L"osung unseres Problems ein Algorithmus f"ur
 die Breitensuche durch unseren Graphen an. In jedem Knoten unseres Graphen
 werden nun die Gewichte der Kanten zu den Nachbarknoten miteinander
 verglichen und das geringste Gewicht wird mit dem global am niedrigsten
 verglichen.
-\item[(c)] 
+
+Im optimierten Fall betrachten wir bereits besuchte Knoten gar nicht mehr.
+
+\item[(c)] Die Laufzeit im Worst-Case ist in \(O(n^2)\), da im schlimmsten Fall
+jeder Knoten mit jedem Verbunden ist. Damit steht der Graph f"ur die
+Worst-Case-Laufzeit auch bereits fest - n"amlich ein Vollst"andiger Graph.
+
+Passt man den Algorithmus etwas an, so dass bereits besuchte Knoten nicht mehr
+betrachtet werden, so ist die Worst-Case-Laufzeit sogar nur in \(O(n \log n)\).
 \end{enumerate}
+
+\item[(d)] Setzt man voraus, dass der Graph nur negative Kantengewichte besitzt,
+so kann der Aufwand minimiert werden, da positive Kantengewichte, wie man an
+\((a)\) sieht ignoriert werden k"onnen.
 
 \end{document}
