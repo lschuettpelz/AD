@@ -12,7 +12,7 @@ Dann kann man mittels eines single source shortest path Algorithmus die Funktion
 Der Parameter $\alpha$ sorgt dafür wie stark eine komplexere Funktion gewichtet wird, der Parameter $\beta$ gewichtet den Fehler.\\\\
 Für jede Kante wird das Kantengewicht berechnet als:\\
  $d_{\{u,v\}} = \alpha \cdot 1 + \beta \cdot \sum_{i=u}^{v} \lvert f(x_i)-g(x_i) \lvert ^2$\\\\
- Für (b) wären die Kantengewichte damit:\\
+ Für das Beispiel aus (b) wären die Kantengewichte damit:\\
  $d(x_1,x_2) = 1$ \\
  $d(x_1,x_3) = 1 + 1 \cdot (5-1)^2 = 17$ \\
  $d(x_1,x_4) = 1 + 1 \cdot ((5-0)^2+(2-0)^2) = 1 + 25 + 4 = 30$ \\
