@@ -1,0 +1,47 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\begin{document}
+
+\section*{Aufgabe 3}
+
+\begin{algorithm}
+\begin{algorithmic}[5]
+
+\Function{$FloydWarshall*$}{$W$}
+\State $ n \gets \text{number of vertices}$ \\
+\State $D^{(0)} \gets W$ 
+\For {$s = 1, \dots, n$}
+\For {$t = 1, \dots, n$}
+\If{$d_0(s,t)=\infty$}
+\State $m(s,t) = NIL$
+\Else  
+\State $m(s,t) \gets s$
+\State $\text{ \#Initialize predecessor matrix m}$
+\EndIf
+\EndFor
+\EndFor
+\For {$k = 1, \dots, n$}
+\For {$s = 1, \dots, n$}
+\For {$t = 1, \dots, n$}
+\State $d_k(s,t) \gets min\{d_{k-1}(s,t), d_{k-1}(s,k) + d_{k-1}(k,t)\}$\\
+\If{$d_k(s,t) < d_{k-1}(s,t)$}
+\State $m(s,t) \gets k$ \\
+\State $\text{\# If the path gets shorter, the predecessor must have changed,}$
+\State $\text{\# and since we just tried out k, it must be k}$
+\EndIf
+\EndFor
+\EndFor
+\EndFor
+
+
+\EndFunction
+
+\end{algorithmic}
+\end{algorithm}
+
+
+\end{document}
