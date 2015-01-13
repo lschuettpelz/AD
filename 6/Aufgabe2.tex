@@ -1,0 +1,53 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{amsmath}
+\usepackage{algorithmic}
+\begin{document}
+
+\section*{Aufgabe 2}
+\begin{itemize}
+\item[(1. Durchlauf)]
+\begin{itemize}
+\item[$u$]: Frankfurt \\
+\item[Distanz:] Mannheim.dist = 85km, Würzburg.dist = 217km, Kassel.dist = 173km \\
+\item[Vorgängerknoten:] Mannheim.$\pi$ = Frankfurt, Würzburg.$\pi$ = Frankfurt, Kassel.$\pi$ = Frankfurt \\
+\item[Status:] Frankfurt.status = settled, Mannheim.status = labelchanged, Würzburg.status = labelchanged, Karlsruhe.status = unreached, Augsburg.status = unreached, München.status = unreached, Erfurt.status = unreached, Nürnberg.status = unreached, Stuttgart.status = unreached \\
+\end{itemize}
+\item[(2. Durchlauf)]
+\begin{itemize}
+\item[$u$:] Mannheim \\
+\item[Distanzen:] Mannheim.dist = 85km, Würzburg.dist = 217km, Kassel.dist = 173 km, Karlsruhe.dist = 165 km \\
+\item[Vorgängerknoten:] Karlsruhe.$\pi$ = Mannheim,  Mannheim.$\pi$ = Frankfurt, Würzburg.$\pi$ = Frankfurt, Kassel.$\pi$ = Frankfurt \\
+\item[Status:] Frankfurt.status = settled, Mannheim.status=settled, Würzburg.status = labelchanged, Karlsruhe.status = labelchanged, Augsburg.status = unreached, München.status = unreached, Erfurt.status = unreached, Nürnberg.status = unreached, Stuttgart.status = unreached \\
+\end{itemize}
+\item[(3. Durchlauf)]
+\begin{itemize}
+\item[$u$:] Karlsruhe \\
+\item[Distanzen:] Mannheim.dist = 85km, Würzburg.dist = 217km, Kassel.dist = 173km, Karlsruhe.dist = 165km, Ausburg.dist = 415km \\
+\item[Vorgängerknoten:] Karlsruhe.$\pi$ = Mannheim,  Mannheim.$\pi$ = Frankfurt, Würzburg.$\pi$ = Frankfurt, Kassel.$\pi$ = Frankfurt, Augsburg.$\pi$ = Karlsruhe \\
+\item[Status:] Frankfurt.status = settled, Mannheim.status = settled, Würzburg.status = labelchanged, Karlsruhe.status = settled, Augsburg.status = labelchanged, München.status = unreached, Erfurt.status = unreached, Nürnberg.status = unreached, Stuttgart.status = unreached \\
+\end{itemize}
+\item[(4. Durchlauf)]
+\begin{itemize}
+\item[$u$:] Würzburg \\
+\item[Distanzen:] Mannheim.dist = 85km, Würzburg.dist = 217km, Kassel.dist = 173km, Karlsruhe.dist = 165km, Ausburg.dist = 415km, Nürnberg.dist = 320km, Erfurt.dist = 402km \\
+\item[Vorgängerknoten:] Karlsruhe.$\pi$ = Mannheim,  Mannheim.$\pi$ = Frankfurt, Würzburg.$\pi$ = Frankfurt, Kassel.$\pi$ = Frankfurt, Augsburg.$\pi$ = Karlsruhe, Nürnberg.$\pi$ = Würzburg, Erfurt.$\pi$ = Würzburg \\
+\item[Status:] Frankfurt.status = settled, Mannheim.status = settled, Würzburg.status = settled, Karlsruhe.status = settled, Augsburg.status = labelchanged, München.status = unreached, Erfurt.status = labelchanged, Nürnberg.status = labelchanged, Stuttgart.status = unreached \\
+\end{itemize}
+\item[(5. Durchlauf)]
+\begin{itemize}
+\item[$u$:] Augsburg \\
+\item[Distanzen:] Mannheim.dist = 85km, Würzburg.dist = 217km, Kassel.dist = 173km, Karlsruhe.dist = 165km, Ausburg.dist = 415km, Nürnberg.dist = 320km, Erfurt.dist = 402km, München.dist = 499km \\
+\item[Vorgängerknoten:] Karlsruhe.$\pi$ = Mannheim,  Mannheim.$\pi$ = Frankfurt, Würzburg.$\pi$ = Frankfurt, Kassel.$\pi$ = Frankfurt, Augsburg.$\pi$ = Karlsruhe, Nürnberg.$\pi$ = Würzburg, Erfurt.$\pi$ = Würzburg, München.$\pi$ = Augsburg \\
+\item[Status:] Frankfurt.status = settled, Mannheim.status = settled, Würzburg.status = settled, Karlsruhe.status = settled, Augsburg.status = settled, München.status = labelchanged, Erfurt.status = labelchanged, Nürnberg.status = labelchanged, Stuttgart.status = unreached \\
+\end{itemize}
+\item[(6. Durchlauf)]
+\begin{itemize}
+\item[$u$:] Nürnberg \\
+\item[Distanzen:] Mannheim.dist = 85km, Würzburg.dist = 217km, Kassel.dist = 173km, Karlsruhe.dist = 165km, Ausburg.dist = 415km, Nürnberg.dist = 320km, Erfurt.dist = 402km, München.dist = 487km, Stuttgart.dist = 503km \\
+\item[Vorgängerknoten:] Karlsruhe.$\pi$ = Mannheim,  Mannheim.$\pi$ = Frankfurt, Würzburg.$\pi$ = Frankfurt, Kassel.$\pi$ = Frankfurt, Augsburg.$\pi$ = Karlsruhe, Nürnberg.$\pi$ = Würzburg, Erfurt.$\pi$ = Würzburg, München.$\pi$ = Nürnberg, Stuttgart.$\pi$ = Nürnberg \\
+\item[Status:] Frankfurt.status = settled, Mannheim.status = settled, Würzburg.status = settled, Karlsruhe.status = settled, Augsburg.status = settled, München.status = labelchanged, Erfurt.status = labelchanged, Nürnberg.status = settled, Stuttgart.status = labelchanged \\
+\end{itemize}
+\end{itemize}
+\end{document}
