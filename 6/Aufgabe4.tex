@@ -1,0 +1,45 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\begin{document}
+
+\section*{Aufgabe 4}
+
+\begin{enumerate}
+\item[(a)]
+Annahme: T ist kein minimaler Spannbaum im veränderten Graphen, also 
+hat sich T zu T' = (V, E'') (der neue minimale Spannbaum) geändert. 
+Da nur die Kante $e \in E \backslash E$' verändert wurde, muss e in E''
+liegen, e also im neuen minimalen Spannbaum sein.
+
+Da e erhöht wurde, wäre dann aber e auch schon in E', also im 
+vorherigen minimalen Spannbaum gewesen. Dies ist aber nicht 
+gegeben, damit muss T auch im veränderten Graphen der minimale 
+Spannbaum sein.
+  
+\item[(b)]
+Zuerst prüfen wir, ob e in E' liegt. Wenn ja, dann bleibt T minimaler 
+Spannbaum. 
+Wenn nein, dann muss geprüft werden, ob sich der minimale Spannbaum 
+verändert hat.  
+Dazu kann man sich die beiden Knoten heraussuchen, die e verbindet, 
+alle von diesen aus- und eingehenden Kanten aus T herausnehmen, und dann
+auf diesen Knoten Kruskal oder Prims Algorithmus anwenden, um 
+herauszufinden, welche dieser Kanten in einen Spannbaum gehören, sodass 
+dieser minimal und ohne Zyklen ist.
+
+Das Verfahren ist korrekt. Wenn $e \in E$', dann ist T weiterhin 
+minimaler Spannbaum, mit einem verringerten Kantengewicht. Wenn $e 
+\notin E$', dann muss geprüft werden, ob T sich dadurch verändert. 
+T kann sich nur an Kanten verndern, die direkt in der Umgebung von 
+e liegen. Den Rest der Kanten importieren wir, und prüfen nur, wie 
+die "`offenen Knoten"' am minimalsten eingebunden werden können. 
+Kruskal und Prim sind laut Vorlesung korrekt, damit ist das 
+Verfahren korrekt.
+ 
+\end{enumerate}
+
+\end{document}
