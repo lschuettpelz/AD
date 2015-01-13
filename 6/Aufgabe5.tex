@@ -1,0 +1,50 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\begin{document}
+
+\section*{Aufgabe 5}
+
+\begin{enumerate} 
+\item[(a)] 
+
+Gelte die Aussage nicht. Dann gäbe es einen Graphen G mit einen 
+Schnitt (S, V \textbackslash S) von G mit einer eindeutig 
+bestimmten Schnittkante, so dass G keinen eindeutigen minimalen 
+Spannbaum besitzt. Sei der minimale Spannbaum T nicht eindeutig, 
+dann gibt es die minimalen Spannbäume T und T'. T und T' 
+unterscheiden sich damit in mindestens einer Kante, e in T und e' 
+in T'. 
+
+OBdA können wir annehmen, dass wir einen Schnitt so durch den 
+Graphen legen können, dass e und e' Schnittkanten sind. Sind noch 
+weitere Kanten im Schnitt, so ist ihr Gewicht höher (dann sind sie 
+definitiv nicht die minimale Schnittkante), oder niedriger (dann 
+ist diese Kante in T und T', e und e' aber nicht), es kann nicht 
+gleich sein, da es nach Voraussetzung eindeutige minimale 
+Schnittkanten gibt.
+
+Nach eben dieser Voraussetzung gibt es aber nur eine minimale 
+Schnittkante, e oder e', und damit muss e' > e gelten (oder anders 
+herum). Damit ist T' aber auch kein minimaler Spannbaum mehr.
+Also muss e = e' und T = T' gelten, damit ist der minimalle Spannbaum eindeutig bestimmt.
+
+
+\item[(b)]
+
+Die Umkehrung der Aussage: Wenn G einen eindeutig bestimmten 
+minimalen Spannbaum hat, dann existiert für jeden Schnitt von G 
+eine eindeutig bestimmte Schnittkante mit minimalem Gewicht.
+
+Man nehme einen Graphen, der aus drei Knoten und drei Kanten 
+besteht, die das Gewicht 1, 1 und 2 haben. Der minimale Spannbaum 
+ist eindeutig bestimmt. Aber legt man einen Schnitt so durch G, 
+dass beide Kanten mit Kantengewicht 1 durchschnitten werden, so 
+ist die Schnittkante nicht eindeutig.
+
+\end{enumerate}
+
+\end{document}
