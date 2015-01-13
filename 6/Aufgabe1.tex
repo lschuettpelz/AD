@@ -43,5 +43,20 @@
 \end{algorithmic}
 \end{algorithm}
 
+Die Matrix M wird so initialisiert, dass falls von s nach t ein Pfad 
+besteht, s als Vorgänger von t angegeben wird, und wenn nicht, es noch 
+keinen Vorgänger für t gibt. 
+Läuft nun der Algorithmus und wird durch Hinzunehmen des Knotens k ein 
+kürzerer Pfad gefunden, wird k als neuer Vorgänger eingesetzt. 
+
+Am Ende stehen in der Matrix M jeweils die Vorgänger, bei denen ein 
+kürzester Weg gefunden wurde, wenn also bei dem k-ten Durchlauf k als 
+neuer Vorgänger für t von s aus festgelegt wurde, kann man in der 
+Matrix schauen, welcher Vorgänger für k eingetragen ist, auf dem 
+kürzesten Weg von s nach k. Damit kann man aus der Matrix den kürzesten 
+Pfad ablesen. 
+
+Das könnte man jetzt über Induktion zeigen, aber soviel Zeit habe 
+ich nicht. 
 
 \end{document}
