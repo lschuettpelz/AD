@@ -1,0 +1,88 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\begin{document}
+
+\section*{Aufgabe 1}
+
+%\begin{algorithm}
+%\begin{algorithmic}[5]
+\begin{verbatim}
+\# Sortiere die übergebe Folge in einen Stack "folge"
+
+\# Initialisiere die Stacks "best" "secondbest" und "reserve"
+
+\# Nimm das oberste Element vom Stack (letztes der Folge, und packe es in den 
+\# Stack best)
+
+best.push(stack.pop), boolean "bestchanged" = true
+
+\# Nimm das nächste Element vom Stack, falls es größer als das letzte Element 
+\# ist, dann wird kommt es in "'best"', sonst in "'secondbest"'
+
+if stack.peek > best.peek: 
+   secondbest.push(best.pop)
+   best.push(stack.pop)
+   bestchanged= true
+else
+   secondbest.push(stack.pop)
+   secondbestchanged = true
+   bestchanged = false 
+
+\# Wir brauchen nicht nur die Elemente, sondern auch deren Summen, diese wird 
+\# immer gleich mitberechnet (Stack erschien mir als schlaueste Form der 
+\# Speicherung)
+
+sum\_best = best.peek
+sub\_secondbest = secondbest.peek 
+
+\# Nun ist das nächste Element an der Reihe
+
+for elements in stack:
+ 
+  a = folge.pop
+\# falls best nicht geändert wurde beim letzten durchlauf, addiere das Element
+\# zu best
+  if !bestchanged
+    best.pop(a)
+    bestchanged = true
+    secondbestchanged = false
+    sum\_best = sum\_best + a
+
+\# falls best geändert wurde, addiere das element zu secondbest
+
+  else 
+    secondbest.pop(a)
+    bestchanged = false
+    secondbestchanged = true
+    sum\_secondbest = sum\_secondbest + a
+
+\# falls secondbest nun größer ist als best, tausche die beiden
+
+    if sum\_secondbest > sum\_best
+      reserve = best
+      best = secondbest
+      secondbest = reserve
+      bestchanged = true
+      secondbestchanged = false
+
+\# falls das neue Element größer ist, als das, was letzte Runde in best 
+\# gelegt wurden, so lege das neue in best, entferne das alte, und das 
+\# vorherige best wird zu secondbest
+
+    else if a > best.peek
+      secondbest = best
+      best.pop
+      best.push(a)
+      secondbestchanged = false
+      bestchanged = true
+
+ 
+\end{verbatim}     
+%\end{algorithmic}
+%\end{algorithm}
+
+\end{document}
