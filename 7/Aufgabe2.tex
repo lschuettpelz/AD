@@ -1,0 +1,31 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\begin{document}
+
+\section*{Aufgabe 1}
+
+\begin{enumerate}
+\item[(a)]
+Gegeben: Die Mengen A und R. \\
+Strategie: Wir nehmen das größte Element aus A und das größte Element aus R. 
+Damit wird $a_i^{r_i}$ maximiert. Im nächsten Schritt nehmen wie das 
+zweitgrößte Element aus A und aus R, und so weiter.
+Dazu hofft man, dass entweder in A und R eine Null sind, oder nur in R, 
+nicht aber nur eine in A, denn dann ist P immer 0.
+ 
+\item[(b)]
+
+Wenn P nicht maximal wär, dass bekäme man ein größeres P, indem man bis 
+zu n Elemente anders zuordnet. Wenn man zwei Elemente in R tauscht, kann man 
+die Differenz zwischen den Faktoren vermindern (zB ist $1 \cdot 9 < 5 
+\cdot 5$), aber da Potenz stärker ist als Multiplikation, wird das Produkt 
+insgesamt trotzdem kleiner.
+Damit liefert die Stratgie stets den maximalen Wert von P.
+
+\end{enumerate}
+
+\end{document}
