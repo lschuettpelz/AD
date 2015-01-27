@@ -1,0 +1,23 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\begin{document}
+
+\section*{Aufgabe 3}
+
+\textit{Lösung des Multiway-Cut Problems mittels lokaler Suche:}
+
+Wir nehmen an, dass wie eine nicht-triviale Startlösung haben, zB indem 
+man E' konstruiert, indem man alle Kanten aus E entfernt, die nicht zu 
+einem Knoten der Teilmenge S hinführen.
+
+Dann beginnen wir bei einem Knoten der Teilmenge S, nennen wir ihn a und 
+prüfen, ob wir Kanten, die zu a hinführen, aus E' entfernen können, 
+sodass immer noch keine zwei Knoten von S in derselben 
+Zusammenhangskomponente von G-E' sind. 
+Dann gehen wir alle Knoten von S derart durch.
+ 
+\end{document}
