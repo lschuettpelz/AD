@@ -10,79 +10,157 @@
 
 %\begin{algorithm}
 %\begin{algorithmic}[5]
-\begin{verbatim}
-\# Sortiere die übergebe Folge in einen Stack "folge"
 
-\# Initialisiere die Stacks "best" "secondbest" und "reserve"
-
-\# Nimm das oberste Element vom Stack (letztes der Folge, und packe es in den 
-\# Stack best)
-
-best.push(stack.pop), boolean "bestchanged" = true
-
-\# Nimm das nächste Element vom Stack, falls es größer als das letzte Element 
-\# ist, dann wird kommt es in "'best"', sonst in "'secondbest"'
-
-if stack.peek > best.peek: 
-   secondbest.push(best.pop)
-   best.push(stack.pop)
-   bestchanged= true
-else
-   secondbest.push(stack.pop)
-   secondbestchanged = true
-   bestchanged = false 
-
-\# Wir brauchen nicht nur die Elemente, sondern auch deren Summen, diese wird 
-\# immer gleich mitberechnet (Stack erschien mir als schlaueste Form der 
-\# Speicherung)
-
-sum\_best = best.peek
-sub\_secondbest = secondbest.peek 
-
-\# Nun ist das nächste Element an der Reihe
-
-for elements in stack:
- 
-  a = folge.pop
-\# falls best nicht geändert wurde beim letzten durchlauf, addiere das Element
-\# zu best
-  if !bestchanged
-    best.pop(a)
-    bestchanged = true
-    secondbestchanged = false
-    sum\_best = sum\_best + a
-
-\# falls best geändert wurde, addiere das element zu secondbest
-
-  else 
-    secondbest.pop(a)
-    bestchanged = false
-    secondbestchanged = true
-    sum\_secondbest = sum\_secondbest + a
-
-\# falls secondbest nun größer ist als best, tausche die beiden
-
-    if sum\_secondbest > sum\_best
-      reserve = best
-      best = secondbest
-      secondbest = reserve
-      bestchanged = true
-      secondbestchanged = false
-
-\# falls das neue Element größer ist, als das, was letzte Runde in best 
-\# gelegt wurden, so lege das neue in best, entferne das alte, und das 
-\# vorherige best wird zu secondbest
-
-    else if a > best.peek
-      secondbest = best
-      best.pop
-      best.push(a)
-      secondbestchanged = false
-      bestchanged = true
-
- 
-\end{verbatim}     
+% Lauras Lösung
+%\begin{verbatim}
+%\# Sortiere die übergebe Folge in einen Stack "folge"
+%
+%\# Initialisiere die Stacks "best" "secondbest" und "reserve"
+%
+%\# Nimm das oberste Element vom Stack (letztes der Folge, und packe es in den 
+%\# Stack best)
+%
+%best.push(stack.pop), boolean "bestchanged" = true
+%
+%\# Nimm das nächste Element vom Stack, falls es größer als das letzte Element 
+%\# ist, dann wird kommt es in "'best"', sonst in "'secondbest"'
+%
+%if stack.peek > best.peek: 
+%   secondbest.push(best.pop)
+%   best.push(stack.pop)
+%   bestchanged= true
+%else
+%   secondbest.push(stack.pop)
+%   secondbestchanged = true
+%   bestchanged = false 
+%
+%\# Wir brauchen nicht nur die Elemente, sondern auch deren Summen, diese wird 
+%\# immer gleich mitberechnet (Stack erschien mir als schlaueste Form der 
+%\# Speicherung)
+%
+%sum\_best = best.peek
+%sub\_secondbest = secondbest.peek 
+%
+%\# Nun ist das nächste Element an der Reihe
+%
+%for elements in stack:
+% 
+%  a = folge.pop
+%\# falls best nicht geändert wurde beim letzten durchlauf, addiere das Element
+%\# zu best
+%  if !bestchanged
+%    best.pop(a)
+%    bestchanged = true
+%    secondbestchanged = false
+%    sum\_best = sum\_best + a
+%
+%\# falls best geändert wurde, addiere das element zu secondbest
+%
+%  else 
+%    secondbest.pop(a)
+%    bestchanged = false
+%    secondbestchanged = true
+%    sum\_secondbest = sum\_secondbest + a
+%
+%\# falls secondbest nun größer ist als best, tausche die beiden
+%
+%    if sum\_secondbest > sum\_best
+%      reserve = best
+%      best = secondbest
+%      secondbest = reserve
+%      bestchanged = true
+%      secondbestchanged = false
+%
+%\# falls das neue Element größer ist, als das, was letzte Runde in best 
+%\# gelegt wurden, so lege das neue in best, entferne das alte, und das 
+%\# vorherige best wird zu secondbest
+%
+%    else if a > best.peek
+%      secondbest = best
+%      best.pop
+%      best.push(a)
+%      secondbestchanged = false
+%      bestchanged = true
+%
+% 
+%\end{verbatim}     
 %\end{algorithmic}
 %\end{algorithm}
+
+Wir schauen uns zunächst an, was für sehr kleine Listen als Ergebnis
+herauskommt. Für eine Liste mit nur einem Element ist trivialer Weise genau das
+eine Element die Teilliste. Bei zwei Elementen nimmt man das größere der beiden
+Elemente. Ab dem dritten Element wird es bereits etwas schwieriger. Hier nimmt
+man entweder das erste Element und das letzte oder das vorletzte Element. 
+
+Bei vier Elementen gibt es wieder die zwei Fälle, dass man entweder das letzte
+Element nimmt und das vorletzte nicht oder umgekehrt, aber der Teil davor spielt
+auch noch eine Rolle. Wenn man genau hinschaut muss man hier jedoch auch nur
+zwei Gewichte berechnen. Einmal das Gewicht (oder die Summe) der Teilliste, wenn
+man das letzte Element herauslässt oder das Gewicht vom letzten Element zusammen
+mit der Summe der maximalen Subliste (unter den Bedigungen der Aufgabe) der
+Teilliste ohne die letzten beiden Elemente.
+
+Dies lässt sich rekursiv formulieren:
+\begin{verbatim}
+be A[1...n] the input list
+maxWeight(i)
+    return max( maxWeight(i-1) , maxWeight(i-2) + A[i] )
+\end{verbatim}
+
+Bottom Up lässt sich das Problem durch folgenden Algorithmus in \(O(n)\) lösen:
+\begin{verbatim}
+be A[1...n] the input list
+
+if only one Element: return Element
+if two Elements: return bigger Element
+
+Weights[1] = A[1]
+Weights[2] = max(A[1], A[2])
+
+Function(A)
+    for i from 3 up to n:
+    if (Weights[i-2] + A[i]) > Weights[i-1]
+        Weights[i] = Weights[i-2] + A[i]
+    else
+        Weights[i] = Weights[i-1]
+    end for
+    return Weights[n]
+\end{verbatim}
+
+Angepasst daran, dass das Ergebnis - also die Liste, welche die Summe ergibt -
+gleich mit ausgegeben wird, ist das Folgende:
+
+\begin{verbatim}
+be A[1...n] the input list
+
+if only one Element: return Element
+if two Elements: return bigger Element
+
+Weights[1] = A[1]
+Weights[2] = max(A[1], A[2])
+Sequence[1] contains A[1]
+Sequence[2] contains max(A[1], A[2])
+
+Function(A)
+    for i from 3 up to n:
+    if (Weights[i-2] + A[i]) > Weights[i-1]
+        Weights[i] = Weights[i-2] + A[i]
+	Sequence[i] = Sequence[i-2] with A[i]
+    else
+        Weights[i] = Weights[i-1]
+	Sequence[i] = Sequence[i-1]
+    end for
+    return Weights[n]
+\end{verbatim}
+
+Da je nur die beiden letzten Elemente von \texttt{Weights} und \texttt{Sequence}
+benutzt werden, kann man sich auch das Array sparen und stattdessen mit je zwei
+Variablen arbeiten, was den Speicherbedarf des Algorithmus von \(O(n)\) auf
+\(O(1)\) reduziert.
+
+Die Laufzeit liegt genau deshalb in \(O(n)\), weil die \texttt{for}-Schleife
+ungefähr n mal ausgeführt wird. Da es keine anderen Bedingungen für die
+Termination oder Rekursionen gibt, bestimmt nur die Schleife die Laufzeit.
 
 \end{document}
