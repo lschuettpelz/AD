@@ -1,0 +1,30 @@
+\documentclass{article}
+\usepackage[utf8]{inputenc}
+\usepackage[ngerman]{babel}
+\usepackage{amsmath}
+\usepackage{algorithm}
+\usepackage{algpseudocode}
+\begin{document}
+
+\section*{Aufgabe 4}
+
+Um das Problem nach der Branch-and-Bound-Methode zu lösen benutzt man zunächst
+einen beliebigen (Greedy-)Algorithmus um eine Anfangslösung zu finden. Von
+dieser Anfangslösung, welche eine Vereinigung von Teilmengen, welche die
+Zielmenge komplett überdecken, ist.
+
+Nun gehen wir die Schritte wieder zurück und schauen an jedem Punkt, wie viele
+Elemente der Zielmenge wir noch überdecken müssen und was für Mengen wir noch
+dafür zur Verfügung haben. Als unterste Schranke dafür Berechnen wir die
+geringste Anzahl an Teilmengen, so dass die Summe der Mächtigkeiten dieser
+Mengen größer ist, als die Anzahl der Elemente, die wir noch überdecken müssen.
+Dies ist wiederum ein Greedy-Algorithmus, welchen wir bereits in den
+Präsenzaufgaben implementiert haben.
+
+Die Untere Schranke, welche wir berechnen ist tatsächlich eine Untere Schranke,
+da wir davon ausgehen, dass die Mengen disjunkt sind, wenn wir einfach nur ihre
+Mächtigkeiten addieren. Sind die Mengen nicht disjunkt, so brauchen wir sogar
+noch mehr Teilmengen, um die restlichen Elemente zu überdecken.
+
+
+\end{document}
